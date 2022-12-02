@@ -18,7 +18,6 @@ router.get('/clothes', async (req, res, next) => {
 
 router.get('/clothes/:id', async (req, res, next) => {
   try {
-
     const clothesItem = await clothesInterface.read({
       where: { id: +req.params.id },
     });
@@ -52,7 +51,8 @@ router.put('/clothes/:id', async (req, res, next) => {
 
 router.delete('/clothes/:id', async (req, res, next) => {
   try {
-    await ClothesModel.destroy(
+
+    await clothesInterface.delete(
       {
         where: { id: +req.params.id },
       });

@@ -50,7 +50,7 @@ router.put('/food/:id', async (req, res, next) => {
 
 router.delete('/food/:id', async (req, res, next) => {
   try {
-    await FoodModel.destroy(
+    await foodInterface.delete(
       {
         where: { id: +req.params.id },
       });
