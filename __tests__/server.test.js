@@ -15,24 +15,35 @@ afterAll(async () => {
 
 describe('Rest API Server', () => {
   test('Creates a food item', async () => {
-    let response = await (request.post('/food')).send({
+    let food1 = await (request.post('/food')).send({
       name: 'tester',
       amount: 42,
     });
-    expect(response.status).toEqual(201);
-    expect(response.body.name).toEqual('tester');
-    expect(response.body.amount).toEqual(42);
-
+    let food2 = await (request.post('/food')).send({
+      name: 'tester2',
+      amount: 4242,
+    });
+    expect(food1.status).toEqual(201);
+    expect(food1.body.name).toEqual('tester');
+    expect(food1.body.amount).toEqual(42);
+    expect(food2.status).toEqual(201);
+    expect(food2.body.name).toEqual('tester2');
+    expect(food2.body.amount).toEqual(4242);
   });
 
   test('Updates a food item', async () => {
     let response = await (request.put('/food/1')).send({
-      name: 'tester',
+      name: 'tester3',
       amount: 42,
     });
     expect(response.status).toEqual(202);
-    expect(response.body[0]).toEqual(1);
+  });
 
+  test('reads all food items', async () => {
+    let response = await (request.get('/food'));
+    console.log(response);
+    expect(response.body.length).toEqual(2);
+    expect(response.status).toEqual(200);
   });
 
   test('Deletes a food item', async () => {
@@ -55,14 +66,28 @@ describe('Rest API Server', () => {
 
 
   test('Creates a clothes item', async () => {
-    let response = await (request.post('/clothes')).send({
+    let clothes1 = await (request.post('/clothes')).send({
       name: 'tester',
       amount: 42,
     });
-    expect(response.status).toEqual(201);
-    expect(response.body.name).toEqual('tester');
-    expect(response.body.amount).toEqual(42);
+    let clothes2 = await (request.post('/clothes')).send({
+      name: 'tester2',
+      amount: 4242,
+    });
+    expect(clothes1.status).toEqual(201);
+    expect(clothes1.body.name).toEqual('tester');
+    expect(clothes1.body.amount).toEqual(42);
+    expect(clothes2.status).toEqual(201);
+    expect(clothes2.body.name).toEqual('tester2');
+    expect(clothes2.body.amount).toEqual(4242);
 
+  });
+
+  test('reads all clothes items', async () => {
+    let response = await (request.get('/clothes'));
+    console.log(response);
+    expect(response.body.length).toEqual(2);
+    expect(response.status).toEqual(200);
   });
 
   test('Updates a clothes item', async () => {
@@ -71,7 +96,7 @@ describe('Rest API Server', () => {
       amount: 42,
     });
     expect(response.status).toEqual(202);
-    expect(response.body[0]).toEqual(1);
+
 
   });
 
