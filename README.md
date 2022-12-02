@@ -11,8 +11,8 @@ Build a REST API using Express, by creating a proper series of endpoints that pe
 
 ### Links and Resources
 
-- [ci/cd]() (GitHub Actions)
-- [server-prod]()
+- [ci/cd](https://github.com/tm-LBenson/api-server/actions) (GitHub Actions)
+- [server-prod](https://d49-api-app.onrender.com)
 - [db-prod](postgres://tm_lbenson:57Af2huVXU1cR50haeyet1HzfnKS161J@dpg-ce40715a499cum1nougg-a/api_app_z5xx)
 
 ### Setup
@@ -50,6 +50,7 @@ see `.env.sample`
 - Create Database on Render.
 
 -Feature three: Add Data Model Class to handle requests
+-add method for each type of CRUD method
 
 #### Tests
 
@@ -63,5 +64,5 @@ see `.env.sample`
 
 #### UML
 
-![UML](./.png)
+![UML](./assets/uml.png)
 Link to an image of the UML for your application and response to events
